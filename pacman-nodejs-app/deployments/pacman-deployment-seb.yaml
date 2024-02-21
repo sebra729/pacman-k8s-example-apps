@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: pacman
+  name: pacman
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: pacman
+  template:
+    metadata:
+      labels:
+        name: pacman
+    spec:
+      containers:
+      - image: quay.io/sebra729/erbium_pacman-nodejs-app:latest
+        name: pacman
+        ports:
+        - containerPort: 8080
+          name: http-server
+        env:
+            - name: SPLUNK_OTEL_AGENT
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: "http://$(SPLUNK_OTEL_AGENT):4317"
+            - name: OTEL_SERVICE_NAME
+              value: "pacman"
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "deployment.environment=srauhala"
+            - name: SPLUNK_METRICS_ENABLED
+              value: "true"
+            - name: SPLUNK_DEBUG_METRICS_ENABLED
+              value: "true"
+            - name: SPLUNK_PROFILER_ENABLED
+              value: "true" 
+            - name: SPLUNK_PROFILER_LOGS_ENDPOINT
+              value: "http://$(SPLUNK_OTEL_AGENT):4317"

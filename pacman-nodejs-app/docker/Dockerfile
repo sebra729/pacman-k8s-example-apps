@@ -1,4 +1,4 @@
-FROM node:boron
+FROM node:erbium
 
 MAINTAINER Ivan Font <ifont@redhat.com>
 
@@ -7,7 +7,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Clone game source code
-RUN git clone https://github.com/font/pacman.git .
+RUN git clone https://github.com/sebra729/pacman.git .
 
 # Install app dependencies
 RUN npm install
