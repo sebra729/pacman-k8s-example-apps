@@ -15,8 +15,9 @@ spec:
         name: pacman-dev
     spec:
       containers:
-      - image: quay.io/sebra729/rum_pacman-nodejs-app:latest
+      - image: localhost:5000/erbium/rum_pacman-nodejs-app:latest
         name: pacman-dev
+        #imagePullPolicy: IfNotPresent        
         ports:
         - containerPort: 8080
           name: http-server

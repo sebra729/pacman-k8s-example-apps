@@ -30,7 +30,7 @@ spec:
             - name: OTEL_SERVICE_NAME
               value: "pacman"
             - name: OTEL_RESOURCE_ATTRIBUTES
-              value: "deployment.environment=srauhala"
+              value: "deployment.environment=pacman-prod"
             - name: SPLUNK_METRICS_ENABLED
               value: "true"
             - name: SPLUNK_DEBUG_METRICS_ENABLED
