@@ -1,4 +1,4 @@
-FROM node:erbium
+FROM node:hydrogen
 
 MAINTAINER Ivan Font <ifont@redhat.com>
 
