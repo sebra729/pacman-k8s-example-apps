@@ -32,7 +32,6 @@ spec:
             - name: OTEL_SERVICE_NAME
               value: "pacman"
             - name: OTEL_NODE_RESOURCE_DETECTORS
-              value: "env,host,os"
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: "environment=pacman-g"
+              value: "all"
+
 
