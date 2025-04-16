@@ -15,7 +15,7 @@ spec:
         name: pacman-dev
     spec:
       containers:
-      - image: quay.io/sebra729/rum_pacman-nodejs-app:latest
+      - image: quay.io/sebra729/erbium_pacman-nodejs-app:latest
         name: pacman-dev
         ports:
         - containerPort: 8080
