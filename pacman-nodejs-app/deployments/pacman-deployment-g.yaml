@@ -21,7 +21,18 @@ spec:
         - containerPort: 8080
           name: http-server
         env:
-            - name: SPLUNK_OTEL_AGENT
+            - name: OTEL_AGENT
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: "http://$(OTEL_AGENT):4317"
+            - name: OTEL_EXPORTER_OTLP_PROTOCOL
+              value: "grpc"
+            - name: OTEL_SERVICE_NAME
+              value: "pacman"
+            - name: OTEL_NODE_RESOURCE_DETECTORS
+              value: "env,host,os"
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "environment=pacman-g"
+
