@@ -30,6 +30,6 @@ spec:
             - name: OTEL_NODE_RESOURCE_DETECTORS
               value: "all"
             - name: OTEL_RESOURCE_ATTRIBUTES
-              value: "deployment.environment=pacman-prod"
+              value: "deployment.environment=pacman-prod, deployment_environment=pacman-prod, service_name=pacman, service.name=pacman"
 
 
